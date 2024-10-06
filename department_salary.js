@@ -85,3 +85,21 @@ function calculateDepartmentSalary(department) {
     }
         return totalDepartmentSalary;
 };
+
+//Task 3: Create a Function to Calculate the Total Salary for All Departments
+
+function calculateCompanySalary(company){
+    let totalCompanySalary = 0;
+    for (let department of company.departments){
+        totalCompanySalary += calculateDepartmentSalary(department);
+    }
+    return totalCompanySalary;
+};
+
+// Salary for each department and salary for the company
+
+company.departments.forEach(department=> {
+    const totalSalary = calculateDepartmentSalary(department);
+    console.log(`Total salary for ${department.departmentName}: $${totalSalary}`)});
+
+console.log(`Total salary for all departments: $${calculateCompanySalary(company)}`);
